@@ -4,10 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MWWMWeatherApp.View"
+        xmlns:vm="clr-namespace:MWWMWeatherApp.ViewModel"
         mc:Ignorable="d"
         Title="WeatherForecastWindow" Height="450" Width="800"
         Background="{StaticResource backgroundColor}">
-    <Grid>
+
+    <!-- Set the resource for binding -->
+    <Window.Resources>
+        <vm:WeatherVM x:Key="vm" />
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource vm}">
+
         <!-- Left, right, and the divider -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -17,11 +25,26 @@
 
         <!-- Left stack panel -->
         <StackPanel VerticalAlignment="Center">
+
             <!-- Choose the city TextBlock -->
             <TextBlock Text="Choose the city:" 
                        Style="{StaticResource infoTextBlockStyle}"/>
+
             <!-- TextBox for typing in the name of the city -->
-            <TextBox/>
+            <TextBox Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <!-- ListView that displays the autocompletion -->
+            <ListView Height="150" 
+                      ItemsSource="{Binding Cities}"
+                      Background="{StaticResource listViewBackgroundColor}" 
+                      Margin="20, 0, 20, 0"
+                      SelectedItem="{Binding SelectedCity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding LocalizedName}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
 
         <!-- Divider -->
@@ -32,24 +55,39 @@
 
         <!-- Right stack panel -->
         <StackPanel VerticalAlignment="Center" Grid.Column="2">
-            <TextBlock Text="CityName"
+            <TextBlock Text="{Binding SelectedCity.LocalizedName}"
                        Style="{StaticResource cityNameTextBlockStyle}"/>
 
             <!-- ListView for displaying the weather forecast -->
             <ListView Height="300"
-                      Margin="20, 0, 20, 30">
+                      Background="{StaticResource listViewBackgroundColor}" 
+                      Margin="20, 0, 20, 30"
+                      ItemsSource="{Binding Forecasts}">
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin=" 0, 10">
-                            <TextBlock Text="Date"
-                                       Margin="0"/>
+                            <TextBlock Text="{Binding Date, StringFormat='{}{0:m}'}"
+                                       Style="{StaticResource listItemTextBlockStyle}"
+                                       FontWeight="Bold"
+                                       Margin="0"
+                                       FontSize="20"
+                                       Foreground="{StaticResource textColor}"/>
+
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="MIN: "/>
-                                <TextBlock Text="0"/>
-                                <TextBlock Text="c"/>
-                                <TextBlock Text="MAX: " Margin="10 0 0 0"/>
-                                <TextBlock Text="12"/>
-                                <TextBlock Text="c"/>
+                                <TextBlock Text="from "
+                                           Style="{StaticResource listItemTextBlockStyle}"/>
+                                <TextBlock Text="{Binding Temperature.Minimum.Value}"
+                                           Style="{StaticResource listItemTextBlockStyle}"/>
+                                <TextBlock Text="°C"
+                                           Style="{StaticResource listItemTextBlockStyle}"/>
+                                <TextBlock Text="up to "
+                                           Style="{StaticResource listItemTextBlockStyle}"
+                                           Margin="10 0 0 0"/>
+                                <TextBlock Text="{Binding Temperature.Maximum.Value}"
+                                           Style="{StaticResource listItemTextBlockStyle}"/>
+                                <TextBlock Text="°C"
+                                           Style="{StaticResource listItemTextBlockStyle}"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

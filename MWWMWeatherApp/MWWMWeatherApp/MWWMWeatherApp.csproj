@@ -58,7 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\AccuWeatherCity.cs" />
     <Compile Include="ViewModel\WeatherAPI.cs" />
+    <Compile Include="ViewModel\WeatherVM.cs" />
     <Compile Include="View\WeatherForecastWindow.xaml.cs">
       <DependentUpon>WeatherForecastWindow.xaml</DependentUpon>
     </Compile>
