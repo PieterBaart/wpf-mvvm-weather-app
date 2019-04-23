@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 
 /// <summary>
-/// 
 /// The AccuWeatherForecast.cs file is the model for the weather forecast.
 /// It's main functionality is to provide a class which objects can be representing json file in the app.
 /// This class is Forecast.cs and it provides a public IList of DailyForecasts that can represent weather forecast for each day. 
@@ -13,7 +12,6 @@ using System.ComponentModel;
 /// 
 /// In all of the classes (except for the Forecast class), the setter for the properties calls the OnPropertyChanged() method,
 /// which then calls the PropertyChanged event with an argument of propertyName
-/// 
 /// </summary>
 
 namespace MWWMWeatherApp.Model {
