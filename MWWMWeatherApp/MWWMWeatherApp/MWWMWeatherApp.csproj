@@ -61,6 +61,9 @@
     <Compile Include="Model\AccuWeatherCity.cs" />
     <Compile Include="ViewModel\WeatherAPI.cs" />
     <Compile Include="ViewModel\WeatherVM.cs" />
+    <Compile Include="View\WeatherDetailsWindow.xaml.cs">
+      <DependentUpon>WeatherDetailsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WeatherForecastWindow.xaml.cs">
       <DependentUpon>WeatherForecastWindow.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\WeatherDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\WeatherForecastWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

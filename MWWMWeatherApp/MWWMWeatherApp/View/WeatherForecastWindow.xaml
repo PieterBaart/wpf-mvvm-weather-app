@@ -67,7 +67,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin=" 0, 10">
-                            <TextBlock Text="{Binding Date, StringFormat='{}{0:m}'}"
+                            <TextBlock Text="{Binding Date.DayOfWeek}"
                                        Style="{StaticResource listItemTextBlockStyle}"
                                        FontWeight="Bold"
                                        Margin="0"
