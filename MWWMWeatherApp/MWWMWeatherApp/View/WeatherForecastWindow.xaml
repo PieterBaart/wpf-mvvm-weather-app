@@ -62,8 +62,7 @@
             <ListView Height="300"
                       Background="{StaticResource listViewBackgroundColor}" 
                       Margin="20, 0, 20, 0"
-                      ItemsSource="{Binding Forecasts}"
-                      SelectionChanged="ListView_SelectionChanged">
+                      ItemsSource="{Binding Forecasts}">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -89,6 +88,9 @@
                                            Style="{StaticResource listItemTextBlockStyle}"/>
                                 <TextBlock Text="°C"
                                            Style="{StaticResource listItemTextBlockStyle}"/>
+                                <Button Content="Details" 
+                                        Command="{Binding Source={StaticResource vm}, Path=MDetailsCommand}"
+                                        CommandParameter="{Binding }"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
