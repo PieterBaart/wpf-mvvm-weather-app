@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MWWMWeatherApp.View"
         xmlns:vm="clr-namespace:MWWMWeatherApp.ViewModel"
         mc:Ignorable="d"
-        Title="WeatherForecastWindow" Height="450" Width="800"
+        Title="WeatherForecastWindow" Height="500" Width="800"
         Background="{StaticResource backgroundColor}">
 
     <!-- Set the resource for binding -->
@@ -59,7 +59,8 @@
                        Style="{StaticResource cityNameTextBlockStyle}"/>
 
             <!-- ListView for displaying the weather forecast -->
-            <ListView Height="300"
+            <ListView x:Name="ForecastListView"
+                      Height="300"
                       Background="{StaticResource listViewBackgroundColor}" 
                       Margin="20, 0, 20, 0"
                       ItemsSource="{Binding Forecasts}">
@@ -88,14 +89,15 @@
                                            Style="{StaticResource listItemTextBlockStyle}"/>
                                 <TextBlock Text="°C"
                                            Style="{StaticResource listItemTextBlockStyle}"/>
-                                <Button Content="Details" 
-                                        Command="{Binding Source={StaticResource vm}, Path=MDetailsCommand}"
-                                        CommandParameter="{Binding }"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Content="Details" 
+                    Margin="20, 10, 20, 10"
+                    Command="{Binding Source={StaticResource vm}, Path=MDetailsCommand}"
+                    CommandParameter="{Binding ElementName=ForecastListView, Path=SelectedItem}"/>
             <Button Content="Refresh" 
                     Margin="20, 10, 20, 10"
                     Command="{Binding Source={StaticResource vm}, Path=MRefreshCommand}"/>

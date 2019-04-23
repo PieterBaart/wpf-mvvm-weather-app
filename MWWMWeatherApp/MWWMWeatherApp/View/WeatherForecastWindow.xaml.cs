@@ -21,11 +21,5 @@ namespace MWWMWeatherApp.View {
         public WeatherForecastWindow() {
             InitializeComponent();
         }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var item = (ListView)sender;
-            var forecast = (DailyForecast)item.SelectedItem;
-            MessageBox.Show("U clicked" + forecast.Date.DayOfWeek);
-        }
     }
 }
