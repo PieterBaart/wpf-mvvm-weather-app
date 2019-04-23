@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MWWMWeatherApp.Model;
 
 namespace MWWMWeatherApp.View {
     /// <summary>
@@ -19,6 +20,12 @@ namespace MWWMWeatherApp.View {
     public partial class WeatherForecastWindow : Window {
         public WeatherForecastWindow() {
             InitializeComponent();
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var item = (ListView)sender;
+            var forecast = (DailyForecast)item.SelectedItem;
+            MessageBox.Show("U clicked" + forecast.Date.DayOfWeek);
         }
     }
 }

@@ -62,7 +62,8 @@
             <ListView Height="300"
                       Background="{StaticResource listViewBackgroundColor}" 
                       Margin="20, 0, 20, 30"
-                      ItemsSource="{Binding Forecasts}">
+                      ItemsSource="{Binding Forecasts}"
+                      SelectionChanged="ListView_SelectionChanged">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
