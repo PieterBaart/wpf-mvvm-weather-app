@@ -12,7 +12,7 @@ namespace MWWMWeatherApp.ViewModel {
         /// <summary>
         /// Unique key used for requesting AccuWeather
         /// </summary>
-        public const string API_KEY = "i3aw74RzRj65wP6tHCcEW1jQYXYelyBA";
+        public const string API_KEY = "hu50TD6i9xOTUwdgEGyTpDJLjhjqT1AF";
 
         /// <summary>
         /// Base Url for making requests to AccuWeather forecast
