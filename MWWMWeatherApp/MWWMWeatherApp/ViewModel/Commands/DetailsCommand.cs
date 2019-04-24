@@ -8,7 +8,11 @@ using MWWMWeatherApp.Model;
 using MWWMWeatherApp.View;
 
 namespace MWWMWeatherApp.ViewModel.Commands {
+    /// <summary>
+    /// Handles the details button behaviour
+    /// </summary>
     class DetailsCommand : ICommand {
+
         public WeatherVM VM { get; set; }
         public event EventHandler CanExecuteChanged;
 
@@ -18,10 +22,19 @@ namespace MWWMWeatherApp.ViewModel.Commands {
             VM = vm;
         }
 
+        /// <summary>
+        /// Check wether it's possible to call the Execute() method
+        /// </summary>
+        /// <param name="parameter">Extra data for executing</param>
+        /// <returns>Always true</returns>
         public bool CanExecute(object parameter) {
             return true;
         }
 
+        /// <summary>
+        /// Behaviour after clicking the details button
+        /// </summary>
+        /// <param name="parameter">Extra data for executing</param>
         public void Execute(object parameter) {
             WeatherDetailsWindow detailsWindow = new WeatherDetailsWindow();
             detailsWindow.DataContext = (DailyForecast)parameter;

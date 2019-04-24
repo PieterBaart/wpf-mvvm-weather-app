@@ -4,20 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MWWMWeatherApp.View"
-
         mc:Ignorable="d"
         Title="WeatherDetailsWindow" Height="450" Width="450"
         Background="{StaticResource backgroundColor}">
 
-    <!-- Set the resource for binding -->
-
-
-    <Grid >
+    <Grid>
+        <!-- Stack panel for all the information -->
         <StackPanel>
+            <!-- Day of week text block-->
             <TextBlock Text="{Binding Date.DayOfWeek}"
                        Style="{StaticResource infoTextBlockStyle}"
                        Margin="0,10,0,40"
                        TextAlignment="Center"/>
+            
+            <!-- Minimum temperature stack panel -->
             <StackPanel Orientation="Horizontal"
                         Background="{StaticResource listViewBackgroundColor}">
                 <TextBlock Text="Minimum temperature: "
@@ -35,6 +35,8 @@
                            FontSize="20"
                            Foreground="{StaticResource textColor}"/>
             </StackPanel>
+
+            <!-- Maximum temperature stack panel -->
             <StackPanel Orientation="Horizontal"
                         Background="{StaticResource listViewBackgroundColor}">
                 <TextBlock Text="Maximum temperature: "
@@ -52,6 +54,8 @@
                            FontSize="20"
                            Foreground="{StaticResource textColor}"/>
             </StackPanel>
+
+            <!-- Source stack panel -->
             <StackPanel Orientation="Horizontal"
                         Background="{StaticResource listViewBackgroundColor}">
                 <TextBlock Text="Source: "
@@ -65,7 +69,6 @@
                            FontSize="20"
                            Foreground="{StaticResource textColor}"/>
             </StackPanel>
-             
         </StackPanel>
     </Grid>
 </Window>
