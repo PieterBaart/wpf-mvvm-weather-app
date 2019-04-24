@@ -4,17 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MWWMWeatherApp.View"
+
         mc:Ignorable="d"
         Title="WeatherDetailsWindow" Height="450" Width="450"
         Background="{StaticResource backgroundColor}">
-    <Grid>
+
+    <!-- Set the resource for binding -->
+
+
+    <Grid >
         <StackPanel>
-            <TextBlock Text="CityName"
-                       Style="{StaticResource infoTextBlockStyle}"
-                       Margin="0,20,0,20"
-                       TextAlignment="Center"
-                       FontSize="48"/>
-            <TextBlock Text="Date"
+            <TextBlock Text="{Binding Date.DayOfWeek}"
                        Style="{StaticResource infoTextBlockStyle}"
                        Margin="0,10,0,40"
                        TextAlignment="Center"/>
@@ -26,7 +26,7 @@
                            Margin="40, 0, 0, 0" 
                            FontSize="20"
                            Foreground="{StaticResource textColor}"/>
-                <TextBlock Text="0"
+                <TextBlock Text="{Binding Temperature.Minimum.Value}"
                            Style="{StaticResource listItemTextBlockStyle}"
                            FontSize="20"
                            Foreground="{StaticResource textColor}"/>
@@ -43,7 +43,7 @@
                            Margin="40, 0, 0, 0" 
                            FontSize="20"
                            Foreground="{StaticResource textColor}"/>
-                <TextBlock Text="0"
+                <TextBlock Text="{Binding Temperature.Maximum.Value}"
                            Style="{StaticResource listItemTextBlockStyle}"
                            FontSize="20"
                            Foreground="{StaticResource textColor}"/>

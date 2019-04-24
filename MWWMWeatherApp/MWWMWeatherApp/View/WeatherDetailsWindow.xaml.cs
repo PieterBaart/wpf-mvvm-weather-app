@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MWWMWeatherApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,10 +18,8 @@ namespace MWWMWeatherApp.View
     /// <summary>
     /// Interaction logic for WeatherDetailsWindow.xaml
     /// </summary>
-    public partial class WeatherDetailsWindow : Window
-    {
-        public WeatherDetailsWindow()
-        {
+    public partial class WeatherDetailsWindow : Window {
+        public WeatherDetailsWindow() {
             InitializeComponent();
         }
     }

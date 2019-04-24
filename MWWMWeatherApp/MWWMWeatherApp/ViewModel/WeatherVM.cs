@@ -65,7 +65,7 @@ namespace MWWMWeatherApp.ViewModel {
             Cities = new ObservableCollection<City>();
             SelectedCity = new City();
             MRefreshCommand = new RefreshCommand(this);
-            MDetailsCommand = new DetailsCommand();
+            MDetailsCommand = new DetailsCommand(this);
         }
 
         /// <summary>
@@ -92,8 +92,6 @@ namespace MWWMWeatherApp.ViewModel {
             Forecasts.Clear();
             foreach (var forecast in weather.DailyForecasts) {
                 Forecasts.Add(forecast);
-
-            
             }
         }
     }
