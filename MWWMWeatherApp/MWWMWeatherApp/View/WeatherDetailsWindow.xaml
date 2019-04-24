@@ -1,0 +1,164 @@
+﻿<Window x:Class="MWWMWeatherApp.View.WeatherDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MWWMWeatherApp.View"
+        mc:Ignorable="d"
+        Title="WeatherDetailsWindow" Height="450" Width="450"
+        Background="{StaticResource backgroundColor}">
+
+    
+    <!-- Data context is set in DetailsCommand -->
+    
+    <Grid Margin="10">
+        <!-- Stack panel for all the information -->
+        <StackPanel VerticalAlignment="Center">
+            <!-- Day of week text block-->
+            <TextBlock Text="{Binding Date.DayOfWeek}"
+                       Style="{StaticResource cityNameTextBlockStyle}"
+                       Margin="0,10,0,40"
+                       TextAlignment="Center"/>
+
+            <!-- Divider -->
+            <Rectangle 
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource clickableBackroundColor}" 
+                   Height="2"/>
+
+            <!-- Date stack panel -->
+            <StackPanel Orientation="Horizontal"
+                        Background="{StaticResource listViewBackgroundColor}">
+                <TextBlock Text="Full date: "
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontWeight="Bold"
+                           Margin="40, 0, 0, 0" 
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+                <TextBlock Text="{Binding Date}"
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+            </StackPanel>
+
+            <!-- Divider -->
+            <Rectangle 
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource clickableBackroundColor}" 
+                   Height="2"/>
+
+            <!-- Day stack panel -->
+            <StackPanel Orientation="Horizontal"
+                        Background="{StaticResource listViewBackgroundColor}">
+                <TextBlock Text="Day: "
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontWeight="Bold"
+                           Margin="40, 0, 0, 0" 
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+                <TextBlock Text="{Binding Day.IconPhrase}"
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+            </StackPanel>
+
+            <!-- Divider -->
+            <Rectangle 
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource clickableBackroundColor}" 
+                   Height="2"/>
+
+            <!-- Night stack panel -->
+            <StackPanel Orientation="Horizontal"
+                        Background="{StaticResource listViewBackgroundColor}">
+                <TextBlock Text="Night: "
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontWeight="Bold"
+                           Margin="40, 0, 0, 0" 
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+                <TextBlock Text="{Binding Night.IconPhrase}"
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+            </StackPanel>
+
+            <!-- Divider -->
+            <Rectangle 
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource clickableBackroundColor}" 
+                   Height="2"/>
+
+            <!-- Minimum temperature stack panel -->
+            <StackPanel Orientation="Horizontal"
+                        Background="{StaticResource listViewBackgroundColor}">
+                <TextBlock Text="Minimum temperature: "
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontWeight="Bold"
+                           Margin="40, 0, 0, 0" 
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+                <TextBlock Text="{Binding Temperature.Minimum.Value}"
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+                <TextBlock Text="°C"
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+            </StackPanel>
+
+            <!-- Divider -->
+            <Rectangle 
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource clickableBackroundColor}" 
+                   Height="2"/>
+
+            <!-- Maximum temperature stack panel -->
+            <StackPanel Orientation="Horizontal"
+                        Background="{StaticResource listViewBackgroundColor}">
+                <TextBlock Text="Maximum temperature: "
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontWeight="Bold"
+                           Margin="40, 0, 0, 0" 
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+                <TextBlock Text="{Binding Temperature.Maximum.Value}"
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+                <TextBlock Text="°C"
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+            </StackPanel>
+
+            <!-- Divider -->
+            <Rectangle 
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource clickableBackroundColor}" 
+                   Height="2"/>
+
+            <!-- Source stack panel -->
+            <StackPanel Orientation="Horizontal"
+                        Background="{StaticResource listViewBackgroundColor}">
+                <TextBlock Text="Source: "
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontWeight="Bold"
+                           Margin="40, 0, 0, 0" 
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+                <TextBlock Text="www.accuweather.com"
+                           Style="{StaticResource listItemTextBlockStyle}"
+                           FontSize="20"
+                           Foreground="{StaticResource textColor}"/>
+            </StackPanel>
+
+            <!-- Divider -->
+            <Rectangle 
+                   HorizontalAlignment="Stretch" 
+                   Fill="{StaticResource clickableBackroundColor}" 
+                   Height="2"/>
+        </StackPanel>
+    </Grid>
+</Window>

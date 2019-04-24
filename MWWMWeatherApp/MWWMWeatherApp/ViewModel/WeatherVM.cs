@@ -1,4 +1,5 @@
 ﻿using MWWMWeatherApp.Model;
+using MWWMWeatherApp.ViewModel.Commands;
 using System.Collections.ObjectModel;
 
 namespace MWWMWeatherApp.ViewModel {
@@ -49,10 +50,22 @@ namespace MWWMWeatherApp.ViewModel {
             }
         }
 
+        /// <summary>
+        /// Used for binding refresh button
+        /// </summary>
+        public RefreshCommand MRefreshCommand { get; set; }
+
+        /// <summary>
+        /// Used for binding details buttons
+        /// </summary>
+        public DetailsCommand MDetailsCommand { get; set; }
+
         public WeatherVM() {
             Forecasts = new ObservableCollection<DailyForecast>();
             Cities = new ObservableCollection<City>();
             SelectedCity = new City();
+            MRefreshCommand = new RefreshCommand(this);
+            MDetailsCommand = new DetailsCommand(this);
         }
 
         /// <summary>
@@ -72,7 +85,7 @@ namespace MWWMWeatherApp.ViewModel {
         /// Change the data of the Forecasts ObservableCollection
         /// so that the view can bind
         /// </summary>
-        private async void GetWeather() {
+        public async void GetWeather() {
             string key = SelectedCity.Key;
             var weather = await WeatherAPI.GetWeatherInformationAsync(SelectedCity.Key);
 

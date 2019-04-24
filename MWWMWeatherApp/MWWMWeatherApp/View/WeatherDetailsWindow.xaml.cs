@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MWWMWeatherApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,14 +12,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MWWMWeatherApp.Model;
 
-namespace MWWMWeatherApp.View {
+namespace MWWMWeatherApp.View
+{
     /// <summary>
-    /// Interaction logic for WeatherForecastWindow.xaml
+    /// Interaction logic for WeatherDetailsWindow.xaml
     /// </summary>
-    public partial class WeatherForecastWindow : Window {
-        public WeatherForecastWindow() {
+    public partial class WeatherDetailsWindow : Window {
+        public WeatherDetailsWindow() {
             InitializeComponent();
         }
     }
