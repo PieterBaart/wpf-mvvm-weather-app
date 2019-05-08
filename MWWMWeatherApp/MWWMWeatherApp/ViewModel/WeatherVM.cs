@@ -1,6 +1,7 @@
 ﻿using MWWMWeatherApp.Model;
 using MWWMWeatherApp.ViewModel.Commands;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace MWWMWeatherApp.ViewModel {
     /// <summary>
@@ -73,11 +74,15 @@ namespace MWWMWeatherApp.ViewModel {
         /// so that the view can bind
         /// </summary>
         private async void GetCities() {
-            var cities = await WeatherAPI.GetAutocompleteAsync(Query);
-
-            Cities.Clear();
-            foreach (var city in cities) {
-                Cities.Add(city);
+            try {
+                var cities = await WeatherAPI.GetAutocompleteAsync(Query);
+                Cities.Clear();
+                foreach (var city in cities) {
+                    Cities.Add(city);
+                }
+            }
+            catch(System.Net.Http.HttpRequestException) {
+                ShowMessageBox();
             }
         }
 
@@ -87,11 +92,24 @@ namespace MWWMWeatherApp.ViewModel {
         /// </summary>
         public async void GetWeather() {
             string key = SelectedCity.Key;
-            var weather = await WeatherAPI.GetWeatherInformationAsync(SelectedCity.Key);
+            try {
+                var weather = await WeatherAPI.GetWeatherInformationAsync(SelectedCity.Key);
+                Forecasts.Clear();
+                foreach (var forecast in weather.DailyForecasts) {
+                    Forecasts.Add(forecast);
+                }
+            }
+            catch(System.Net.Http.HttpRequestException) {
+                ShowMessageBox();
+            }
+        }
 
-            Forecasts.Clear();
-            foreach (var forecast in weather.DailyForecasts) {
-                Forecasts.Add(forecast);
+        /// <summary>
+        /// Shows messagebox with information about internet connection
+        /// </summary>
+        private void ShowMessageBox() {
+            if (MessageBox.Show("Check your internet connection and try again later.", "Information", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK) {
+                Application.Current.Shutdown();
             }
         }
     }
