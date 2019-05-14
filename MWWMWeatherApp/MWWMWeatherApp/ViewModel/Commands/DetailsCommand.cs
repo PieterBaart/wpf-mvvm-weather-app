@@ -36,9 +36,11 @@ namespace MWWMWeatherApp.ViewModel.Commands {
         /// </summary>
         /// <param name="parameter">Extra data for executing</param>
         public void Execute(object parameter) {
-            WeatherDetailsWindow detailsWindow = new WeatherDetailsWindow();
-            detailsWindow.DataContext = (DailyForecast)parameter;
-            detailsWindow.Show();
+            if ((DailyForecast)parameter != null) {
+                WeatherDetailsWindow detailsWindow = new WeatherDetailsWindow();
+                detailsWindow.DataContext = (DailyForecast)parameter;
+                detailsWindow.Show();
+            }
         }
     }
 }

@@ -93,16 +93,18 @@ namespace MWWMWeatherApp.ViewModel {
         /// so that the view can bind
         /// </summary>
         public async void GetWeather() {
-            string key = SelectedCity.Key;
-            try {
-                var weather = await WeatherAPI.GetWeatherInformationAsync(SelectedCity.Key);
-                Forecasts.Clear();
-                foreach (var forecast in weather.DailyForecasts) {
-                    Forecasts.Add(forecast);
+            if (SelectedCity != null) {
+                string key = SelectedCity.Key;
+                try {
+                    var weather = await WeatherAPI.GetWeatherInformationAsync(SelectedCity.Key);
+                    Forecasts.Clear();
+                    foreach (var forecast in weather.DailyForecasts) {
+                        Forecasts.Add(forecast);
+                    }
                 }
-            }
-            catch(System.Net.Http.HttpRequestException) {
-                ShowMessageBox();
+                catch (System.Net.Http.HttpRequestException) {
+                    ShowMessageBox();
+                }
             }
         }
 
