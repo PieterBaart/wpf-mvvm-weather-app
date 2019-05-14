@@ -77,8 +77,10 @@ namespace MWWMWeatherApp.ViewModel {
             try {
                 var cities = await WeatherAPI.GetAutocompleteAsync(Query);
                 Cities.Clear();
-                foreach (var city in cities) {
-                    Cities.Add(city);
+                if (cities != null) {
+                    foreach (var city in cities) {
+                        Cities.Add(city);
+                    }
                 }
             }
             catch(System.Net.Http.HttpRequestException) {
