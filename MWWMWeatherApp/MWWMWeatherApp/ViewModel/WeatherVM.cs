@@ -22,6 +22,11 @@ namespace MWWMWeatherApp.ViewModel {
             set {
                 query = value;
                 GetCities();
+                // If there is nothing written in the textBox, erase
+                // forecast listView
+                if (Query == "") {
+                    Forecasts.Clear();
+                }
             }
         }
 
