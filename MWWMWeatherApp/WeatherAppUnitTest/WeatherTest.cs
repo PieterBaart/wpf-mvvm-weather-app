@@ -47,8 +47,7 @@ namespace WeatherAppUnitTest {
         /// after erasing the query
         /// </summary>
         [TestMethod]
-        public void ErasingQueryTest()
-        {
+        public void ErasingQueryTest() {
             //arrange
             int expectedForecastLength = 0;
             string firstQuery = "r";
