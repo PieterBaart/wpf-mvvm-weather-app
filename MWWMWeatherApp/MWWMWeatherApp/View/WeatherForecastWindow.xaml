@@ -31,7 +31,8 @@
                        Style="{StaticResource infoTextBlockStyle}"/>
 
             <!-- TextBox for typing in the name of the city -->
-            <TextBox Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            <TextBox Name="queryTextBox"
+                     Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      MaxLength="10"/>
 
             <!-- ListView that displays the autocompletion -->

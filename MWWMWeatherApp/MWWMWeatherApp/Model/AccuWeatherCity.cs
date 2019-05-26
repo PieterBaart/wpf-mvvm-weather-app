@@ -1,5 +1,4 @@
-﻿
-namespace MWWMWeatherApp.Model {
+﻿namespace MWWMWeatherApp.Model {
     /// <summary>
     /// Set of and ID and LocalizedName
     /// </summary>

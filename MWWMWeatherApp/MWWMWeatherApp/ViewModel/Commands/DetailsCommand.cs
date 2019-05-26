@@ -11,7 +11,7 @@ namespace MWWMWeatherApp.ViewModel.Commands {
     /// <summary>
     /// Handles the details button behaviour
     /// </summary>
-    class DetailsCommand : ICommand {
+    public class DetailsCommand : ICommand {
 
         public WeatherVM VM { get; set; }
         public event EventHandler CanExecuteChanged;
