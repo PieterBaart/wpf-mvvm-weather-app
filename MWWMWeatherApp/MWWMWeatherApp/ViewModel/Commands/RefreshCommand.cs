@@ -10,7 +10,7 @@ namespace MWWMWeatherApp.ViewModel.Commands {
     /// <summary>
     /// Handles the refresh button behaviour
     /// </summary>
-    class RefreshCommand : ICommand {
+    public class RefreshCommand : ICommand {
         public WeatherVM VM { get; set; }
         public event EventHandler CanExecuteChanged;
 

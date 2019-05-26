@@ -9,8 +9,9 @@ namespace MWWMWeatherApp.ViewModel {
     /// It is the closest one to the view.
     /// It's purpouse is to update the view via binding.
     /// </summary>
-    class WeatherVM {
+    public class WeatherVM {
 
+        private int queryLenght = 10;
         private string query;
         private City selectedCity;
 
@@ -21,6 +22,10 @@ namespace MWWMWeatherApp.ViewModel {
             get { return query; }
             set {
                 query = value;
+                // Make sure query is max 10 characters long
+                if(query.Length > 10) {
+                    query = query.Substring(0, queryLenght);
+                }
                 GetCities();
                 // If there is nothing written in the textBox, erase
                 // forecast listView
